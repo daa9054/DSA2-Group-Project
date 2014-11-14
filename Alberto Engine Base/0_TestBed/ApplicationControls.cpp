@@ -63,6 +63,13 @@ void ApplicationClass::ProcessKeyboard(void)
 		m_pModelManager->SetModelMatrix(matrix, m_sSelectedObject);
 		m_pBSMngr->SetModelMatrix(matrix, m_sSelectedObject);
 		m_pBBMngr->SetModelMatrix(matrix, m_sSelectedObject);
+
+		matrix4 pos = m_pModelManager->GetModelMatrix(m_sSelectedObject);
+		vector4 pos2 = pos *  vector4(0.0f,3.5f,3.0f,1.0f);
+		vector3 pos3 = static_cast<vector3>(pos2);
+		std::cout<< "Pos X: " << pos3.x << " Y: " << pos3.y << " Z: " << pos3.z << std::endl;
+		m_pCamera0->SetPosition(pos3);
+		m_pCamera0->Rotate(70.0f, 0.0f);
 		
 	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -71,6 +78,13 @@ void ApplicationClass::ProcessKeyboard(void)
 		m_pModelManager->SetModelMatrix(matrix, m_sSelectedObject);
 		m_pBSMngr->SetModelMatrix(matrix, m_sSelectedObject);
 		m_pBBMngr->SetModelMatrix(matrix, m_sSelectedObject);
+
+		matrix4 pos = m_pModelManager->GetModelMatrix(m_sSelectedObject);
+		vector4 pos2 = pos *  vector4(0.0f,3.5f,3.0f,1.0f);
+		vector3 pos3 = static_cast<vector3>(pos2);
+		std::cout<< "Pos X: " << pos3.x << " Y: " << pos3.y << " Z: " << pos3.z << std::endl;
+		m_pCamera0->SetPosition(pos3);
+		m_pCamera0->Rotate(70.0f, 0.0f);
 	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
@@ -83,6 +97,13 @@ void ApplicationClass::ProcessKeyboard(void)
 		m_pModelManager->SetModelMatrix(matrix, m_sSelectedObject);
 		m_pBSMngr->SetModelMatrix(matrix, m_sSelectedObject);
 		m_pBBMngr->SetModelMatrix(matrix, m_sSelectedObject);
+
+		matrix4 pos = m_pModelManager->GetModelMatrix(m_sSelectedObject);
+		vector4 pos2 = pos *  vector4(0.0f,3.5f,3.0f,1.0f);
+		vector3 pos3 = static_cast<vector3>(pos2);
+		std::cout<< "Pos X: " << pos3.x << " Y: " << pos3.y << " Z: " << pos3.z << std::endl;
+		m_pCamera0->SetPosition(pos3);
+		m_pCamera0->Rotate(70.0f, 0.0f);
 	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
@@ -95,6 +116,13 @@ void ApplicationClass::ProcessKeyboard(void)
 		m_pModelManager->SetModelMatrix(matrix, m_sSelectedObject);
 		m_pBSMngr->SetModelMatrix(matrix, m_sSelectedObject);
 		m_pBBMngr->SetModelMatrix(matrix, m_sSelectedObject);
+
+		matrix4 pos = m_pModelManager->GetModelMatrix(m_sSelectedObject);
+		vector4 pos2 = pos *  vector4(0.0f,3.5f,3.0f,1.0f);
+		vector3 pos3 = static_cast<vector3>(pos2);
+		std::cout<< "Pos X: " << pos3.x << " Y: " << pos3.y << " Z: " << pos3.z << std::endl;
+		m_pCamera0->SetPosition(pos3);
+		m_pCamera0->Rotate(70.0f, 0.0f);
 	}
 #pragma endregion
 	//Model Loading
@@ -205,7 +233,9 @@ void ApplicationClass::ProcessKeyboard(void)
 	//Camera
 #pragma region Camera
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
 		m_pCamera0->MoveForward(fSpeed);
+	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		m_pCamera0->MoveForward(-fSpeed);

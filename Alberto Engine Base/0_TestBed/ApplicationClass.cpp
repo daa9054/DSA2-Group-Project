@@ -384,7 +384,7 @@ void ApplicationClass::InitAppVariables()
 	m_pBSMngr = BoundingSphereManager::GetInstance();
 	m_pBBMngr = BoundingBoxManager::GetInstance();
 
-	m_pModelManager->LoadModel("MC_Steve.obj", "Steve", glm::translate(matrix4(1.0f), vector3(0.0f,0.0f,0.0f)));
+	m_pModelManager->LoadModel("MC_Steve.obj", "Steve", glm::translate(matrix4(1.0f), vector3(0.0f,0.0f,-25.0f)));
 	m_pModelManager->LoadModel("MC_Cow.obj", "Cow", glm::translate(matrix4(1.0f), vector3(-4.0f,0.0f,0.0f)));
 	m_pModelManager->LoadModel("MC_Pig.obj", "Pig", glm::translate(matrix4(1.0f), vector3(-2.0f,0.0f,0.0f)));
 	m_pModelManager->LoadModel("MC_Creeper.obj", "Creeper", glm::translate(matrix4(1.0f), vector3(2.0f,0.0f,0.0f)));
