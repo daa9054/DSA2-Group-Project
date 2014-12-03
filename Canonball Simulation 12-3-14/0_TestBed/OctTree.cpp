@@ -88,7 +88,7 @@ void OctTree::Insert(TargetBox box)
 		maxOct.y < box.GetPos().y && minOct.x > box.GetPos().y &&
 		maxOct.z < box.GetPos().x && minOct.x > box.GetPos().x)
 	{
-		if(children.empty == true && data.size() < maxPerOctant)
+		if(children.empty() == true && data.size() < maxPerOctant)
 		{
 			data.push_back(box);
 		}

@@ -14,7 +14,7 @@ public:
 	~OctTree(void);
 
 	bool IsEmpty();
-	void Insert(TargetBox& box);
+	void Insert(TargetBox box);
 	OctTree GetOctantContainingPoint(vector3 point);
 	void Divide();
 	void Render();
