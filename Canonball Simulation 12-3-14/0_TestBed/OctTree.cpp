@@ -92,5 +92,36 @@ void OctTree::Insert(TargetBox box)
 		{
 			data.push_back(box);
 		}
+		else if(children.empty() == true && data.size() >= maxPerOctant)
+		{
+			data.push_back(box);
+			Divide();
+		}
+		else if (children.empty() == false)
+		{
+			for(int i = 0; i < children.size(); i++)
+			{
+				if(children[i].GetMaxOct().x < box.GetPos().x && children[i].GetMinOct().x > box.GetPos().x &&
+					children[i].GetMaxOct().y < box.GetPos().y && children[i].GetMinOct().y > box.GetPos().y &&
+					children[i].GetMaxOct().z < box.GetPos().x && children[i].GetMinOct().z > box.GetPos().x)
+				{
+					children[i].Insert(box);
+				}
+				else if(data.size() < maxPerOctant)
+				{
+					data.push_back(box);
+				}
+			}
+		}
 	}
+}
+
+void OctTree::Divide()
+{
+	if(children.empty() == true)
+	{
+		children[0] = OctTree(((origin + maxOct) / 2.0f), halfDepth/2.0f,boxMngr,maxPerOctant, origin,
+
+	}
+
 }
