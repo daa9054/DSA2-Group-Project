@@ -1,0 +1,34 @@
+﻿Build started 12/3/2014 5:18:07 PM.
+     1>Project "J:\MyEngineApp\0_TestBed\0_TestBed.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         0_TestBed.vcxproj -> J:\MyEngineApp\Z_DELETE\0_TestBedD.exe
+       PostBuildEvent:
+         mkdir “J:\MyEngineApp\_Binary\”
+         mkdir “J:\MyEngineApp\_Binary\Shaders\”
+         copy “J:\MyEngineApp\Z_DELETE\0_TestBedD.exe” “J:\MyEngineApp\_Binary”
+         xcopy "J:\MyEngineApp\include\GL\bin" "J:\MyEngineApp\_Binary" /y
+         xcopy "J:\MyEngineApp\include\ME\bin" "J:\MyEngineApp\_Binary" /y
+         xcopy "J:\MyEngineApp\include\ME\Shaders" "J:\MyEngineApp\_Binary\Shaders" /y
+         :VCEnd
+         A subdirectory or file J:\MyEngineApp\_Binary\ already exists.
+         A subdirectory or file J:\MyEngineApp\_Binary\Shaders\ already exists.
+                 1 file(s) copied.
+         J:\MyEngineApp\include\GL\bin\glew32.dll
+         1 File(s) copied
+         J:\MyEngineApp\include\ME\bin\MyEngine.dll
+         J:\MyEngineApp\include\ME\bin\MyEngine_d.dll
+         2 File(s) copied
+         J:\MyEngineApp\include\ME\Shaders\Basic.fs
+         J:\MyEngineApp\include\ME\Shaders\Basic.vs
+         J:\MyEngineApp\include\ME\Shaders\Color.fs
+         J:\MyEngineApp\include\ME\Shaders\Color.vs
+         J:\MyEngineApp\include\ME\Shaders\MEShader.fs
+         J:\MyEngineApp\include\ME\Shaders\MEShader.vs
+         J:\MyEngineApp\include\ME\Shaders\MEShaderBW.fs
+         J:\MyEngineApp\include\ME\Shaders\MEShaderInv.fs
+         8 File(s) copied
+     1>Done Building Project "J:\MyEngineApp\0_TestBed\0_TestBed.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.99

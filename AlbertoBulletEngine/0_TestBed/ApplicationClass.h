@@ -13,7 +13,7 @@ Date: 2014/10
 #include <SFML\Graphics.hpp>
 #include <chrono>
 
-#include <vld.h>
+//#include <vld.h>
 
 using namespace MyEngine;
 
