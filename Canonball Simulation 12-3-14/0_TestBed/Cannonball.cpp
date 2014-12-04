@@ -78,7 +78,7 @@ void Cannonball::Update()
 
 		netForce = vector4(0.0f,0.0f,0.0f,1.0f);
 
-		std::cout<< "Ball Pos X: << " << position.x << " Y: " << position.y << " Z: " << position.z << std::endl;
+		//std::cout<< "Ball Pos X: << " << position.x << " Y: " << position.y << " Z: " << position.z << std::endl;
 	}
 	if(position.y < 0.0f)
 	{

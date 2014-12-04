@@ -40,6 +40,8 @@ public:
 	vector3 GetMaxOct();
 	void SetMaxOct(vector3 mx);
 
+	std::vector<OctTree*> releaseList;
+
 protected:
 	vector3 origin;
 	vector3 halfDepth;

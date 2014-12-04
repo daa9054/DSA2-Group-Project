@@ -9,16 +9,19 @@ OctTree::OctTree(vector3 aOrigin, TargetBoxManager aBoxMngr, int aMaxSize,
 	maxPerOctant = aMaxSize;
 	minOct = aMinOct;
 	maxOct = aMaxOct;
+
+	for(int i = 0; i < boxMngr.GetNumBoxes(); i ++)
+	{
+		Insert(boxMngr.GetBoxes()[i]);
+	}
 }
 
 OctTree::~OctTree(void)
 {
-}
-
-std::vector<TargetBox> OctTree::GetListofTargetBoxes(OctTree oct)
-{
-	std::vector<TargetBox> temp = oct.GetData();
-	return temp;
+	for (int i = 0; i < releaseList.size(); i++)
+	{
+		delete releaseList[i];
+	}
 }
 
 vector3 OctTree::GetOrigin()
@@ -85,7 +88,7 @@ void OctTree::Insert(TargetBox box)
 {
 	if(maxOct.x < box.GetPos().x && minOct.x > box.GetPos().x &&
 		maxOct.y < box.GetPos().y && minOct.x > box.GetPos().y &&
-		maxOct.z < box.GetPos().x && minOct.x > box.GetPos().x)
+		maxOct.z < box.GetPos().z && minOct.x > box.GetPos().z)
 	{
 		if(children.empty() == true && data.size() < maxPerOctant)
 		{
@@ -99,6 +102,7 @@ void OctTree::Insert(TargetBox box)
 		else if (children.empty() == false)
 		{
 			for(int i = 0; i < children.size(); i++)
+
 			{
 				if(children[i].GetMaxOct().x < box.GetPos().x && children[i].GetMinOct().x > box.GetPos().x &&
 					children[i].GetMaxOct().y < box.GetPos().y && children[i].GetMinOct().y > box.GetPos().y &&
@@ -164,14 +168,47 @@ void OctTree::Divide()
 			for(int j = 0; j < data.size(); j++)
 			{
 				if(children[i].GetMaxOct().x < data[j].GetPos().x && children[i].GetMinOct().x > data[j].GetPos().x &&
-					maxOct.y < box.GetPos().y && minOct.x > box.GetPos().y &&
-					maxOct.z < box.GetPos().x && minOct.x > box.GetPos().x)
+					children[i].GetMaxOct().y < data[j].GetPos().y && children[i].GetMinOct().y > data[j].GetPos().y &&
+					children[i].GetMaxOct().z < data[j].GetPos().z && children[i].GetMinOct().z > data[j].GetPos().z)
+				{
+					children[i].GetData().push_back(data[j]);
+					data.erase(data.begin() + j);
+				}
 
 			}
 		}
-		
-
-
 	}
-
 }
+
+OctTree OctTree::GetOctantContainingPoint(vector3 point)
+{
+	if(maxOct.x < point.x && minOct.x > point.x &&
+		maxOct.y < point.y && minOct.x > point.y &&
+		maxOct.z < point.z && minOct.x > point.z)
+	{
+		if(children.empty() == false)
+		{
+			OctTree* tree;
+			for(int i = 0; i < children.size(); i++)
+			{
+				if(children[i].GetMaxOct().x < point.x && children[i].GetMinOct().x > point.x &&
+					children[i].GetMaxOct().y < point.y && children[i].GetMinOct().y > point.y &&
+					children[i].GetMaxOct().z < point.z && children[i].GetMinOct().z > point.z)
+				{
+					tree = &(children[i].GetOctantContainingPoint(point));
+					releaseList.push_back(tree);
+					return *tree;
+				}
+			}
+		}
+		return *this;
+	}
+}
+
+std::vector<TargetBox> OctTree::GetListofTargetBoxes(OctTree oct)
+{
+	std::vector<TargetBox> temp = oct.GetData();
+	return temp;
+}
+
+

@@ -39,6 +39,12 @@
     <ClInclude Include="OctTree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OctTreeManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Octant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\res\BTO.rc">
@@ -71,6 +77,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OctTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OctTreeManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Octant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
