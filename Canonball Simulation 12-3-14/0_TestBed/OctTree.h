@@ -9,7 +9,7 @@
 class OctTree
 {
 public:
-	OctTree(vector3 aOrigin, vector3 aHalfDepth, TargetBoxManager aBoxMngr, int aMaxSize,
+	OctTree(vector3 aOrigin, TargetBoxManager aBoxMngr, int aMaxSize,
 				vector3 aMinOct, vector3 aMaxOct);
 	~OctTree(void);
 
