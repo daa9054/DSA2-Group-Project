@@ -108,6 +108,8 @@ xcopy "$(SolutionDir)include\ME\Shaders" "$(SolutionDir)_Binary\Shaders" /y</Com
     <ClInclude Include="Cannonball.h" />
     <ClInclude Include="CannonManager.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="Octant.h" />
+    <ClInclude Include="OctTreeManager.h" />
     <ClInclude Include="TargetBox.h" />
     <ClInclude Include="TargetBoxManager.h" />
   </ItemGroup>
@@ -121,6 +123,8 @@ xcopy "$(SolutionDir)include\ME\Shaders" "$(SolutionDir)_Binary\Shaders" /y</Com
     <ClCompile Include="Cannonball.cpp" />
     <ClCompile Include="CannonManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Octant.cpp" />
+    <ClCompile Include="OctTreeManager.cpp" />
     <ClCompile Include="TargetBox.cpp" />
     <ClCompile Include="TargetBoxManager.cpp" />
   </ItemGroup>
