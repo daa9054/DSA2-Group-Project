@@ -1,7 +1,7 @@
 #include "Octant.h"
 
 
-Octant::Octant(bool IL, int lvl, int ID, float siz, Octant& par, vector3 org)
+Octant::Octant(bool IL, int lvl, int ID, float siz, Octant &par, vector3 org)
 {
 	isLeaf = IL;
 	level = lvl;

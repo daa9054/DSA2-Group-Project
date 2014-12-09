@@ -1,24 +1,13 @@
-﻿Build started 12/9/2014 9:36:32 AM.
+﻿Build started 12/9/2014 2:57:01 PM.
      1>Project "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\0_TestBed\0_TestBed.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D DEBUG /D _MBCS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\\" /Fd"C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /D _CRT_SECURE_NO_WARNINGS Application.cpp ApplicationClass.cpp ApplicationControls.cpp Cannonball.cpp CannonManager.cpp Main.cpp TargetBox.cpp TargetBoxManager.cpp
-         TargetBoxManager.cpp
-     1>TargetBoxManager.cpp(16): warning C4018: '<' : signed/unsigned mismatch
-     1>TargetBoxManager.cpp(35): warning C4018: '<' : signed/unsigned mismatch
-         TargetBox.cpp
-         Main.cpp
-         CannonManager.cpp
-         Cannonball.cpp
-         ApplicationControls.cpp
-     1>ApplicationControls.cpp(54): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         ApplicationClass.cpp
-         Application.cpp
-     1>Application.cpp(9): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>Application.cpp(64): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>Application.cpp(67): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         Generating Code...
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\BTO.res" ..\res\BTO.rc 
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D DEBUG /D _MBCS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\\" /Fd"C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /D _CRT_SECURE_NO_WARNINGS OctTreeManager.cpp
+         OctTreeManager.cpp
+     1>OctTreeManager.cpp(50): warning C4018: '<' : signed/unsigned mismatch
+     1>OctTreeManager.cpp(54): warning C4018: '>=' : signed/unsigned mismatch
+     1>OctTreeManager.cpp(127): warning C4018: '<' : signed/unsigned mismatch
+     1>OctTreeManager.cpp(161): warning C4018: '<' : signed/unsigned mismatch
+     1>OctTreeManager.cpp(176): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBedD.exe" /INCREMENTAL /NOLOGO glew32.lib SOIL.lib opengl32.lib glu32.lib "sfml-system.lib" "sfml-window.lib" MyEngine_d.lib BulletCollision_Debug.lib BulletDynamics_Debug.lib LinearMath_Debug.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBedD.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBedD.lib" /MACHINE:X86 "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\BTO.res"
          "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\Application.obj"
@@ -27,9 +16,10 @@
          "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\Cannonball.obj"
          "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\CannonManager.obj"
          "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\Main.obj"
+         "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\Octant.obj"
+         "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\OctTreeManager.obj"
          "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\TargetBox.obj"
          "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBed\Debug\TargetBoxManager.obj"
-         LINK : C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBedD.exe not found or not built by the last incremental link; performing full link
          0_TestBed.vcxproj -> C:\DSA2-Group-Project\MyEngineApp 12-5 -14\Z_DELETE\0_TestBedD.exe
        PostBuildEvent:
          mkdir “C:\DSA2-Group-Project\MyEngineApp 12-5 -14\_Binary\”
@@ -40,8 +30,8 @@
          xcopy "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\include\ME\Shaders" "C:\DSA2-Group-Project\MyEngineApp 12-5 -14\_Binary\Shaders" /y
          :VCEnd
          A subdirectory or file C:\DSA2-Group-Project\MyEngineApp 12-5 -14\_Binary\ already exists.
-                 1 file(s) copied.
          A subdirectory or file C:\DSA2-Group-Project\MyEngineApp 12-5 -14\_Binary\Shaders\ already exists.
+                 1 file(s) copied.
          C:\DSA2-Group-Project\MyEngineApp 12-5 -14\include\GL\bin\glew32.dll
          1 File(s) copied
          C:\DSA2-Group-Project\MyEngineApp 12-5 -14\include\ME\bin\MyEngine.dll
@@ -60,4 +50,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:13.97
+Time Elapsed 00:00:02.82
