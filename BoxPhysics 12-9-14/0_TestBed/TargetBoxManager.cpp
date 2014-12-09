@@ -13,9 +13,42 @@ TargetBoxManager::~TargetBoxManager(void)
 
 void TargetBoxManager::Update()
 {
+	shouldReset = true;
 	for(int i = 0; i < boxes.size(); i++)
 	{
 		boxes[i].Update();
+		if(boxes[i].onGround == false)
+		{
+			shouldReset = false;
+		}
+	}
+	if(shouldReset == true)
+	{
+		for(int i = 0; i < boxes.size(); i++)
+		{
+			boxes[i].position = boxes[i].startPos;
+			boxes[i].onGround = false;
+		}
+		shouldReset = true;
+	}
+}
+
+void TargetBoxManager::ResetBoxes()
+{
+	for(int i = 0; i < boxes.size(); i++)
+	{
+		float x = (rand() % 20) - 10.0f;
+		float y = (rand() % 5) + 1.0f;
+		float z = (rand() % 20) - 30.0f;
+		if(z < -8.0f)
+		{
+			z = -8.0f;
+		}
+		boxes[i].startPos = vector4(x, y, z, 0.0f);
+		boxes[i].position = boxes[i].startPos;
+		boxes[i].isHit = false;
+		boxes[i].onGround = false;
+		boxes[i].isDestroyed = false;
 	}
 }
 

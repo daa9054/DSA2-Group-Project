@@ -19,6 +19,10 @@ public:
 	void ResetHits();
 	void Update();
 
+	bool shouldReset;
+
+	void ResetBoxes();
+
 	void BounceOff(int index, Cannonball ball);
 
 

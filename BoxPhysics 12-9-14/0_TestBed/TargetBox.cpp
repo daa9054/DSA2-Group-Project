@@ -69,19 +69,19 @@ void TargetBox::Update()
 		//Apply friction
 		if(onGround)
 		{
-			static float xVel = velocity.x;
+			float xVel = velocity.x;
 			float zVel = velocity.z;
 			vector4 friction = glm::normalize(velocity);
 
 			friction *= -1.0f;
-			friction * coefficientOfFriction; //Check this later, may not be strong enough, mass may not be big enough
+			friction * coefficientOfFriction;
 
 			if(zVel < 0)
 			{
 				zVel *= -1.0f;
 			}
 
-			if(zVel < 0.09f) //Check this later to include x as well, z is broken when coming towards the screen
+			if(zVel < 0.09f && xVel < 0.09f)
 			{
 				velocity *= 0.0f;
 			}
@@ -90,7 +90,7 @@ void TargetBox::Update()
 				AddForce(friction);
 			}
 
-			std::cout << "Velocity X: " << xVel << " Velocity Z: " << zVel <<std::endl;
+			std::cout << "Velocity X: " << xVel << "\nVelocity Z: " << zVel <<std::endl;
 		}
 
 		netForce /= mass;

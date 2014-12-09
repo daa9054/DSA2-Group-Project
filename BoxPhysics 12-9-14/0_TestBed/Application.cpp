@@ -8,8 +8,8 @@ void ApplicationClass::InitAppVariables()
 		float x = (rand() % 20) - 10.0f;
 		float y = rand() % 5;
 		float z = (rand() % 20) - 20.0f;
-		m_pModelMngr->LoadModel("TargetBox.obj", "TargetBox", glm::translate(matrix4(1.0f), vector3(0, i+3, -i-3)));
-		tbMnger.AddBox(TargetBox(i,vector4(0,i + 3,-i -3,1.0f)));
+		m_pModelMngr->LoadModel("TargetBox.obj", "TargetBox", glm::translate(matrix4(1.0f), vector3(x, y, z))); // vector3(0, i+3, -i-3)
+		tbMnger.AddBox(TargetBox(i,vector4(x, y, z, 1.0f)));
 	}
 
 	m_pModelMngr->LoadModel("CannonBall.obj", "Ball", glm::translate(matrix4(1.0f), vector3(0.0f, 0.5f, 0.0f)));

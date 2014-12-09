@@ -43,7 +43,7 @@ void ApplicationClass::ProcessKeyboard(void)
 		if(rDown == false)
 		{
 			//std::cout<< "Size of Boxes: " << tbMnger.GetNumBoxes() << std::endl;
-			for(int i = 0; i < tbMnger.GetNumBoxes(); i++)
+			/*for(int i = 0; i < tbMnger.GetNumBoxes(); i++)
 			{
 				m_pModelMngr->DeleteInstance("TargetBox" + i);
 			}
@@ -55,8 +55,9 @@ void ApplicationClass::ProcessKeyboard(void)
 				float z = (rand() % 20) - 20.0f;
 				m_pModelMngr->LoadModel("TargetBox.obj", "TargetBox" + i, glm::translate(matrix4(1.0f), vector3(x, y, z)));
 				tbMnger.AddBox(TargetBox(i,vector4(x,y,z,1.0f)));
+			}*/
+			tbMnger.ResetBoxes();
 
-			}
 			rDown = true;
 		}
 	}
