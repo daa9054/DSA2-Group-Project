@@ -23,16 +23,11 @@ public:
 	BoundingObjectClass* bo;
 
 	//Methods
-	Octant(bool IL, int lvl, int ID, float siz, Octant& par, vector3 org);
+	Octant(bool IL, int lvl, int ID, float siz, Octant &par, vector3 org);
 	~Octant(void);
 
 	void Render();
 	void Release();
 	void Swap(Octant& other);
-
-
-
-
-
 };
 

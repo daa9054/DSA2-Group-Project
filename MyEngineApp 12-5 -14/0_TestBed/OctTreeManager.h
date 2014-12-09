@@ -6,15 +6,32 @@
 class OctTreeManager
 {
 public:
-	OctTreeManager(void);
-	~OctTreeManager(void);
-
+	//Variables
 	int numOctants;
 	int maxLevels;
 	int maxBeforeSubDivide;
-	static int nID;
+	int nID;
 	Octant* root;
+	
+	ModelManagerSingleton* m_pModelMnger;
+	std::vector<InstanceClass*> instances;
+	std::vector<BoundingObjectClass*> boundingObjects;
 
+	float rootSize;
+
+	//Methods
+	OctTreeManager(void);
+	~OctTreeManager(void);
 	void CaluclateIntialSize();
+	void GenerateOctTree();
+	void UpdatePositionInTree(BoundingObjectClass& box);
+	void Render();
+	void Release();
+	void Insert(Octant& oct, BoundingObjectClass& box, int level);
+	void Divide(Octant& oct, int level);
+	Octant& GetOctant(int ID);
+	bool Contains(Octant& oct, BoundingObjectClass& box);
+	std::vector<int> TraverseOctTree(Octant& oct, BoundingObjectClass& box);
+
 };
 
