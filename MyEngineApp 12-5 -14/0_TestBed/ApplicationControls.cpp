@@ -225,6 +225,7 @@ void ApplicationClass::ProcessKeyboard(void)
 	{
 		bDebug = !bDebug;
 		m_pModelMngr->SetVisibleGrandBoundingObjectByName(bDebug);
+
 		bWasF5Pressed = false;//reset the flag
 	}
 	

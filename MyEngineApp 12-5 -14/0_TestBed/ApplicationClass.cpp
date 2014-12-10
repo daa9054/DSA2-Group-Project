@@ -112,7 +112,6 @@ void ApplicationClass::Init( HINSTANCE hInstance, LPWSTR lpCmdLine, int nCmdShow
 	m_pModelMngr = ModelManagerSingleton::GetInstance();
 	InitAppInternalVariables();
 	InitAppVariables();
-
 	printf("\n");
 }
 void ApplicationClass::ReadConfig(void)

@@ -5,9 +5,12 @@ Octant::Octant(bool IL, int lvl, int ID, float siz, Octant &par, vector3 org)
 {
 	isLeaf = IL;
 	level = lvl;
+	id = ID;
 	size = siz;
 	parent = &par;
 	origin = org;
+
+	bo = new BoundingObjectClass(origin,size);
 }
 
 
@@ -39,11 +42,15 @@ void Octant::Release()
 
 void Octant::Render()
 {
+	bo->SetVisible(true);
 	bo->Render();
 
-	for(int i = 0; i < 8; i++)
+	if(isLeaf = false)
 	{
-		children[i]->Render();
+		for(int i = 0; i < 8; i++)
+		{
+			children[i]->Render();
+		}
 	}
 
 }

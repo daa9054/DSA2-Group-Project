@@ -11,6 +11,7 @@ Date: 2014/10
 #include "Bullet\btBulletDynamicsCommon.h"
 #include "CannonManager.h"
 #include "TargetBoxManager.h"
+#include "OctTreeManager.h"
 
 #include <SFML\Graphics.hpp>
 #include <chrono>
@@ -42,6 +43,7 @@ class ApplicationClass
 
 	CannonManager cMnger;
 	TargetBoxManager tbMnger;
+	OctTreeManager* octTreeMnger;
 
 	String m_sSelectedObject;
 

@@ -77,7 +77,7 @@ void TargetBox::Update()
 
 		acceleration = vector4(0.0f,0.0f,0.0f,1.0f);
 
-		std::cout<< "Box Position X: << " << position.x << " Y: " << position.y << " Z: " << position.z << std::endl;
+		//std::cout<< "Box Position X: << " << position.x << " Y: " << position.y << " Z: " << position.z << std::endl;
 	}
 	if(position.y < 0.0f)
 	{

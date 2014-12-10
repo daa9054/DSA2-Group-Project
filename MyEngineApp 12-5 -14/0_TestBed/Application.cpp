@@ -33,6 +33,8 @@ void ApplicationClass::Update (void)
 #pragma endregion
 
 	m_pModelMngr->Update(true); //Update the model manager (need to be called every update call, this is how you update your model positions and such.)
+
+	
 	
 	//The following section will position the camera
 #pragma region first person and arcball position
@@ -82,6 +84,7 @@ void ApplicationClass::Update (void)
 	//m_pModelMngr->SetModelMatrix(glm::translate(matrix4(1.0f), static_cast<vector3>(tbMnger.GetBoxes()[0].GetPos())), "TargetBox");
 
 	tbMnger.Update();
+
 	for(int i = 0; i < 10; i++)
 	{
 		if (i == 0)
@@ -93,6 +96,7 @@ void ApplicationClass::Update (void)
 			m_pModelMngr->SetModelMatrix(glm::translate(matrix4(1.0f), static_cast<vector3>(tbMnger.GetBoxes()[i].GetPos())), i);
 		}
 	}
-
+	octTreeMnger = new OctTreeManager(m_pModelMngr);
+	octTreeMnger->Render();
 	printf("FPS: %d \r", m_pSystem->FPS);//print the Frames per Second
 }

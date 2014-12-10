@@ -18,11 +18,12 @@ public:
 	std::vector<BoundingObjectClass*> boundingObjects;
 
 	float rootSize;
+	vector3 rootOrigin;
 
 	//Methods
-	OctTreeManager(void);
+	OctTreeManager(ModelManagerSingleton* mm);
 	~OctTreeManager(void);
-	void CaluclateIntialSize();
+	void CalculateIntialSize();
 	void GenerateOctTree();
 	void UpdatePositionInTree(BoundingObjectClass& box);
 	void Render();
