@@ -69,19 +69,17 @@ void TargetBox::Update()
 		//Apply friction
 		if(onGround)
 		{
-			float xVel = velocity.x;
-			float zVel = velocity.z;
-			vector4 friction = glm::normalize(velocity);
+			float xVel = glm::abs(velocity.x);
+			float zVel = glm::abs(velocity.z);
 
-			friction *= -1.0f;
-			friction * coefficientOfFriction;
+			float speed = glm::sqrt((xVel*xVel) + (zVel*zVel));
 
-			if(zVel < 0)
-			{
-				zVel *= -1.0f;
-			}
+			vector4 friction = velocity;
 
-			if(zVel < 0.09f && xVel < 0.09f)
+			friction *= -0.07f;
+			//friction *= -1.0f
+
+			if(speed <  0.03f)
 			{
 				velocity *= 0.0f;
 			}
@@ -92,7 +90,7 @@ void TargetBox::Update()
 
 			isHit = false;
 
-			std::cout << "Velocity X: " << xVel << "\nVelocity Z: " << zVel <<std::endl;
+			std::cout << "Speed: " << speed <<std::endl;
 		}
 
 		netForce /= mass;
@@ -124,6 +122,7 @@ void TargetBox::Update()
 		netForce = vector4(0.0f,0.0f,0.0f,1.0f);*/
 	}
 }
+
 
 TargetBox::~TargetBox(void)
 {
