@@ -385,6 +385,11 @@ void ApplicationClass::Display3X (void) //for OpenGL 3.X Applications
 	m_pLightBulb->Render(GL_TRIANGLES); //renders the light bulb
 
 	m_pMeshMngr->Render();
-		
+
+	/*BoundingObjectClass bo(vector3(0.0f,0.0f,0.0f), 3.0f);
+	bo.SetVisible(true);
+	bo.Render();*/
+	octTreeMnger->Render();
+
 	m_pGLSystem->GLSwapBuffers(); //Swaps the opengl buffers
 }

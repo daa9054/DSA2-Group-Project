@@ -43,9 +43,10 @@ void Octant::Release()
 void Octant::Render()
 {
 	bo->SetVisible(true);
+	bo->SetVisibleBS(false);
 	bo->Render();
 
-	if(isLeaf = false)
+	if(isLeaf == false)
 	{
 		for(int i = 0; i < 8; i++)
 		{

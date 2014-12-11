@@ -3,18 +3,18 @@
 
 OctTreeManager::OctTreeManager(ModelManagerSingleton* mm)
 {
-	maxBeforeSubDivide = 3;
+	maxBeforeSubDivide = 2;
 	maxLevels = 3;
 	numOctants = 0;
 
 	m_pModelMnger = mm;
-	int numInstances = m_pModelMnger->GetNumberOfInstances();
+	/*int numInstances = m_pModelMnger->GetNumberOfInstances();
 	for(int i = 0; i < numInstances; i++)
 	{
 		InstanceClass* instance = m_pModelMnger->GetInstanceByIndex(i);
 		instances.push_back(instance);
 		boundingObjects.push_back(instance->GetGrandBoundingObject());
-	}
+	}*/
 	GenerateOctTree();
 }
 
@@ -89,58 +89,58 @@ void OctTreeManager::Divide(Octant& oct, int level)
 	if(oct.isLeaf == true)
 	{
 		nID++;
-		vector3 origin1 = vector3((oct.origin.x + oct.size)/2.0f,
-									(oct.origin.y + oct.size)/2.0f,
-									(oct.origin.z - oct.size)/2.0f);
+		vector3 origin1 = vector3(oct.origin.x + (oct.size)/4.0f,
+									oct.origin.y + (oct.size)/4.0f,
+									oct.origin.z - (oct.size)/4.0f);
 		oct.children[0] = new Octant(true,level + 1,nID,(oct.size/2.0f), oct , origin1);
 		numOctants++;
 
 		nID++;
-		vector3 origin2 = vector3((oct.origin.x - oct.size)/2.0f,
-									(oct.origin.y + oct.size)/2.0f,
-									(oct.origin.z - oct.size)/2.0f);
+		vector3 origin2 = vector3(oct.origin.x - (oct.size)/4.0f,
+									oct.origin.y + (oct.size)/4.0f,
+									oct.origin.z - (oct.size)/4.0f);
 		oct.children[1] = new Octant(true,level + 1,nID,(oct.size/2.0f), oct , origin2);
 		numOctants++;
 
 		nID++;
-		vector3 origin3 = vector3((oct.origin.x - oct.size)/2.0f,
-									(oct.origin.y + oct.size)/2.0f,
-									(oct.origin.z + oct.size)/2.0f);
+		vector3 origin3 = vector3(oct.origin.x - (oct.size)/4.0f,
+									oct.origin.y + (oct.size)/4.0f,
+									oct.origin.z + (oct.size)/4.0f);
 		oct.children[2] = new Octant(true,level + 1,nID,(oct.size/2.0f), oct , origin3);
 		numOctants++;
 
 		nID++;
-		vector3 origin4 = vector3((oct.origin.x + oct.size)/2.0f,
-									(oct.origin.y + oct.size)/2.0f,
-									(oct.origin.z + oct.size)/2.0f);
+		vector3 origin4 = vector3(oct.origin.x + (oct.size)/4.0f,
+									oct.origin.y + (oct.size)/4.0f,
+									oct.origin.z + (oct.size)/4.0f);
 		oct.children[3] = new Octant(true,level + 1,nID,(oct.size/2.0f), oct , origin4);
 		numOctants++;
 
 		nID++;
-		vector3 origin5 = vector3((oct.origin.x + oct.size)/2.0f,
-									(oct.origin.y - oct.size)/2.0f,
-									(oct.origin.z - oct.size)/2.0f);
+		vector3 origin5 = vector3(oct.origin.x + (oct.size)/4.0f,
+									oct.origin.y - (oct.size)/4.0f,
+									oct.origin.z - (oct.size)/4.0f);
 		oct.children[4] = new Octant(true,level + 1,nID,(oct.size/2.0f), oct , origin5);
 		numOctants++;
 
 		nID++;
-		vector3 origin6 = vector3((oct.origin.x - oct.size)/2.0f,
-									(oct.origin.y - oct.size)/2.0f,
-									(oct.origin.z - oct.size)/2.0f);
+		vector3 origin6 = vector3(oct.origin.x - (oct.size)/4.0f,
+									oct.origin.y - (oct.size)/4.0f,
+									oct.origin.z - (oct.size)/4.0f);
 		oct.children[5] = new Octant(true,level + 1,nID,(oct.size/2.0f), oct , origin6);
 		numOctants++;
 
 		nID++;
-		vector3 origin7 = vector3((oct.origin.x - oct.size)/2.0f,
-									(oct.origin.y - oct.size)/2.0f,
-									(oct.origin.z + oct.size)/2.0f);
+		vector3 origin7 = vector3(oct.origin.x - (oct.size)/4.0f,
+									oct.origin.y - (oct.size)/4.0f,
+									oct.origin.z + (oct.size)/4.0f);
 		oct.children[6] = new Octant(true,level + 1,nID,(oct.size/2.0f), oct , origin7);
 		numOctants++;
 
 		nID++;
-		vector3 origin8 = vector3((oct.origin.x + oct.size)/2.0f,
-									(oct.origin.y - oct.size)/2.0f,
-									(oct.origin.z + oct.size)/2.0f);
+		vector3 origin8 = vector3(oct.origin.x + (oct.size)/4.0f,
+									oct.origin.y - (oct.size)/4.0f,
+									oct.origin.z + (oct.size)/4.0f);
 		oct.children[7] = new Octant(true,level + 1,nID,(oct.size/2.0f), oct , origin8);
 		numOctants++;
 
@@ -192,12 +192,12 @@ std::vector<int> OctTreeManager::TraverseOctTree(Octant& oct, BoundingObjectClas
 		}
 	}
 
-	std::cout<< "Oct Tree List: ";
+	/*std::cout<< "Oct Tree List: ";
 	for(int i = 0; i < octantIDList.size(); i++)
 	{
 		std::cout << " " << octantIDList[i] << ", ";
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	return octantIDList;
 }
@@ -211,23 +211,26 @@ void OctTreeManager::CalculateIntialSize()
 	}
 	rootOrigin /= boundingObjects.size();
 
+	rootSize = 20.0f;
+	//for(int i = 0; i < boundingObjects.size(); i++)
+	//{
+	//	vector3 object = boundingObjects[i]->GetCentroidGlobal();
+	//	//vector3 minObjPos = boundingObjects[i]->
+	//	vector3 minObjPos = vector3(object.x - boundingObjects[i]->GetRadius(), object.y - boundingObjects[i]->GetRadius(), object.z - boundingObjects[i]->GetRadius());
+	//	vector3 maxObjPos = vector3(object.x + boundingObjects[i]->GetRadius(), object.y + boundingObjects[i]->GetRadius(), object.z + boundingObjects[i]->GetRadius());
 
-	rootSize = 0.0f;
-	for(int i = 0; i < boundingObjects.size(); i++)
-	{
-		vector3 object = boundingObjects[i]->GetCentroidGlobal();
-		vector3 minObjPos = object - boundingObjects[i]->GetHalfWidth();
-		vector3 maxObjPos = object + boundingObjects[i]->GetHalfWidth();
+	//	/*std::cout<< "MinObject: X: " << minObjPos.x << " Y: " << minObjPos.y << " Z: " << minObjPos.z << std::endl;
+	//	std::cout<< "MaxObject: X: " << maxObjPos.x << " Y: " << maxObjPos.y << " Z: " << maxObjPos.z << std::endl;*/
 
-		if(glm::distance(rootOrigin, maxObjPos) > rootSize)
-		{
-			rootSize = glm::distance(rootOrigin, maxObjPos);
-		}
-		if(glm::distance(rootOrigin, minObjPos) > rootSize)
-		{
-			rootSize = glm::distance(rootOrigin, minObjPos);
-		}
-	}
+	//	if(glm::distance(rootOrigin, maxObjPos) > rootSize)
+	//	{
+	//		rootSize = glm::distance(rootOrigin, maxObjPos);
+	//	}
+	//	if(glm::distance(rootOrigin, minObjPos) > rootSize)
+	//	{
+	//		rootSize = glm::distance(rootOrigin, minObjPos);
+	//	}
+	//}
 }
 
 void OctTreeManager::GenerateOctTree()
@@ -235,9 +238,22 @@ void OctTreeManager::GenerateOctTree()
 	nID = 0;
 	numOctants = 0;
 
+	instances.clear();
+	boundingObjects.clear();
+
+	int numInstances = m_pModelMnger->GetNumberOfInstances();
+	for(int i = 0; i < numInstances; i++)
+	{
+		InstanceClass* instance = m_pModelMnger->GetInstanceByIndex(i);
+		instances.push_back(instance);
+		boundingObjects.push_back(instance->GetGrandBoundingObject());
+	}
+
 	CalculateIntialSize();
 
-	root = new Octant(true, 1, 0, rootSize, *root, rootOrigin);
+	root = new Octant(true, 1, 0, rootSize, *root, rootOrigin );
+	//root->bo->Reinitialize(boundingObjects);
+
 	numOctants++;
 	
 	for(int i = 0; i < boundingObjects.size(); i++)

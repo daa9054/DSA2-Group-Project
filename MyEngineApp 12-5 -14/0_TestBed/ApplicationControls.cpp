@@ -247,35 +247,35 @@ void ApplicationClass::ProcessKeyboard(void)
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		//m_pCamera0->MoveForward(fSpeed);
+		m_pCamera->MoveForward(fSpeed);
 		cMnger.SetYaw(cMnger.GetYaw() + 1.0f);
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		//m_pCamera0->MoveForward(-fSpeed);
+		m_pCamera->MoveForward(-fSpeed);
 		cMnger.SetYaw(cMnger.GetYaw() - 1.0f);
 	}
 	
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		//m_pCamera0->MoveSideways(-fSpeed);
+		m_pCamera->MoveSideways(-fSpeed);
 		cMnger.SetPitch(cMnger.GetPitch() + 1.0f);
-		//if(cMnger.GetPitch() < 60.0f)
-		//{
-		//	m_pCamera0->Rotate(0.0f, 0.01f);
-		//}
+		if(cMnger.GetPitch() < 60.0f)
+		{
+			m_pCamera->Rotate(0.0f, 0.01f);
+		}
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 
-		//m_pCamera0->MoveSideways(-fSpeed);
+		m_pCamera->MoveSideways(fSpeed);
 		cMnger.SetPitch(cMnger.GetPitch() - 1.0f);
-		/*if(cMnger.GetPitch() > -60.0f)
+		if(cMnger.GetPitch() > -60.0f)
 		{
-			m_pCamera0->Rotate(0.0f, -0.01f);
-		}*/
+			m_pCamera->Rotate(0.0f, -0.01f);
+		}
 	}
 
 	matrix4 pitchRotation = glm::rotate(matrix4(1.0f),cMnger.GetPitch(), vector3(0.0f,1.0f,0.0f));
