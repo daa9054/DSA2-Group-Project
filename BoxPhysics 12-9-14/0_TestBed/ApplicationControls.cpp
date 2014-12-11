@@ -36,7 +36,7 @@ void ApplicationClass::ProcessKeyboard(void)
 		}
 		cMnger.SetPower(0.0f);
 	}
-	m_pCamera->SetPosition(static_cast<vector3>(cMnger.GetBallPos()) + vector3(0.0f, 2.0f, 4.0f));
+	//m_pCamera->SetPosition(static_cast<vector3>(cMnger.GetBallPos()) + vector3(0.0f, 2.0f, 4.0f));
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{

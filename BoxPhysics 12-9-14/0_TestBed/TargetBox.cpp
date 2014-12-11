@@ -9,7 +9,7 @@ TargetBox::TargetBox(int boxNum, vector4 startingPos)
 	isHit = false;
 	onGround = false;
 	mass = 1.0f;
-	coefficientOfFriction = 20.0f; 
+	coefficientOfFriction = 15.0f; 
 
 	startPos = startingPos;
 
@@ -89,6 +89,8 @@ void TargetBox::Update()
 			{
 				AddForce(friction);
 			}
+
+			isHit = false;
 
 			std::cout << "Velocity X: " << xVel << "\nVelocity Z: " << zVel <<std::endl;
 		}

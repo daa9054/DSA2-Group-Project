@@ -1,25 +1,8 @@
-﻿Build started 12/10/2014 12:14:03 PM.
+﻿Build started 12/11/2014 1:52:00 PM.
      1>Project "C:\DSA2-Group-Project\BoxPhysics 12-9-14\0_TestBed\0_TestBed.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D DEBUG /D _MBCS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\\" /Fd"C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /D _CRT_SECURE_NO_WARNINGS Application.cpp ApplicationClass.cpp ApplicationControls.cpp Cannonball.cpp CannonManager.cpp Main.cpp TargetBox.cpp TargetBoxManager.cpp
-         TargetBoxManager.cpp
-     1>TargetBoxManager.cpp(17): warning C4018: '<' : signed/unsigned mismatch
-     1>TargetBoxManager.cpp(27): warning C4018: '<' : signed/unsigned mismatch
-     1>TargetBoxManager.cpp(38): warning C4018: '<' : signed/unsigned mismatch
-     1>TargetBoxManager.cpp(68): warning C4018: '<' : signed/unsigned mismatch
-         TargetBox.cpp
-         Main.cpp
-         CannonManager.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D DEBUG /D _MBCS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\\" /Fd"C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /D _CRT_SECURE_NO_WARNINGS Cannonball.cpp
          Cannonball.cpp
-         ApplicationControls.cpp
-         ApplicationClass.cpp
-         Application.cpp
-     1>Application.cpp(9): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>Application.cpp(64): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-     1>Application.cpp(67): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         Generating Code...
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\BTO.res" ..\res\BTO.rc 
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBedD.exe" /INCREMENTAL /NOLOGO glew32.lib SOIL.lib opengl32.lib glu32.lib "sfml-system.lib" "sfml-window.lib" MyEngine_d.lib BulletCollision_Debug.lib BulletDynamics_Debug.lib LinearMath_Debug.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBedD.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBedD.lib" /MACHINE:X86 "C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\BTO.res"
          "C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\Application.obj"
@@ -30,7 +13,6 @@
          "C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\Main.obj"
          "C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\TargetBox.obj"
          "C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBed\Debug\TargetBoxManager.obj"
-         LINK : C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBedD.exe not found or not built by the last incremental link; performing full link
          0_TestBed.vcxproj -> C:\DSA2-Group-Project\BoxPhysics 12-9-14\Z_DELETE\0_TestBedD.exe
        PostBuildEvent:
          mkdir “C:\DSA2-Group-Project\BoxPhysics 12-9-14\_Binary\”
@@ -61,4 +43,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:12.57
+Time Elapsed 00:00:03.16
