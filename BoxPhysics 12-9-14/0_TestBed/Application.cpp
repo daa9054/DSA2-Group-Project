@@ -13,6 +13,8 @@ void ApplicationClass::InitAppVariables()
 	}
 
 	m_pModelMngr->LoadModel("CannonBall.obj", "Ball", glm::translate(matrix4(1.0f), vector3(0.0f, 0.5f, 0.0f)));
+
+	octTreeMnger = new OctTreeManager(m_pModelMngr);
 }
 void ApplicationClass::Update (void)
 {
@@ -94,5 +96,7 @@ void ApplicationClass::Update (void)
 		}
 	}
 
+
+	octTreeMnger->GenerateOctTree();
 	printf("FPS: %d \r", m_pSystem->FPS);//print the Frames per Second
 }

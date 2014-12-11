@@ -386,6 +386,8 @@ void ApplicationClass::Display3X (void) //for OpenGL 3.X Applications
 	m_pLightBulb->Render(GL_TRIANGLES); //renders the light bulb
 
 	m_pMeshMngr->Render();
+
+	octTreeMnger->Render();
 		
 	m_pGLSystem->GLSwapBuffers(); //Swaps the opengl buffers
 }
