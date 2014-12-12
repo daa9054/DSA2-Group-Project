@@ -1,6 +1,9 @@
 #include "CannonManager.h"
 
+//Authors: David Amata, Joe Coppola, and Derek Lescarbeau
+//Date: Novmber 18th - December 12, 2014
 
+//Constructor, Loads intial values
 CannonManager::CannonManager()
 {
 	world = matrix4(1.0f);
@@ -12,6 +15,7 @@ CannonManager::CannonManager()
 	powerScalar = 0.0f;
 }
 
+//Getters and Setters
 Cannonball CannonManager::GetBall()
 {
 	return ball;
@@ -41,6 +45,7 @@ float CannonManager::GetPitch()
 	return pitch;
 }
 
+//Limits Pitch to Set Range
 void CannonManager::SetPitch(float newPitch)
 {
 	pitch = newPitch;
@@ -60,6 +65,7 @@ float CannonManager::GetYaw()
 	return yaw;
 }
 
+//Limits Yaw to set range
 void CannonManager::SetYaw(float newYaw)
 {
 	yaw = newYaw;
@@ -78,6 +84,7 @@ float CannonManager::GetPower()
 	return powerScalar;
 }
 
+//limits power to a max value
 void CannonManager::SetPower(float newPower)
 {
 	powerScalar = newPower;
@@ -87,48 +94,33 @@ void CannonManager::SetPower(float newPower)
 	}
 }
 
+//Calculates force applied to cannon ball
 vector4 CannonManager::CalculateForce()
 {
 	vector4 cannonForce = vector4(0.0f,0.0f,0.0f,1.0f);	
 	cannonForce = glm::normalize(heading);
 	cannonForce *= powerScalar * 0.1;
-	//matrix4 rotateX = glm::rotate(matrix4(1.0f), 180.0f, vector3(1.0f,0.0f,0.0f));
-	//matrix4 rotateY = glm::rotate(matrix4(1.0f), 41.0f, vector3(0.0f,1.0f,0.0f));
-	//cannonForce.z *= -1.0f;
-	//cannonForce = rotateY * cannonForce;
 
-	std::cout<<"CannonForce X: " << cannonForce.x << " Y: " << cannonForce.y << " Z: " << cannonForce.z << std::endl;
+	//std::cout<<"CannonForce X: " << cannonForce.x << " Y: " << cannonForce.y << " Z: " << cannonForce.z << std::endl;
 
 	return cannonForce;
 }
 
+//fires cannonball by releasing bools and adding a power force vector
 void CannonManager::Fire()
 {
-	//if(ball.GetFired() == false)
-	//{
-	//	vector4 cannonForce =  CalculateForce();
-	//	//ball.SetFired(True);
-	//	//ball.Addforce(cannonForce);
-	//}
-
 	if(ball.GetIsFired() == false)
 	{
 		vector4 cannonForce =  CalculateForce();
 		ball.SetIsFired(true);
-		//ball.SetInitialShot(true);
 		ball.AddForce(cannonForce);
 	}
 }
 
+//handles collision logic for the cannonball
 void CannonManager::BounceOff()
 {
 	vector4 velocity = ball.GetVel();
-
-	//vector4 ballHeading = glm::normalize(velocity);
-
-	//ballHeading *= -10.0f;
-
-	//ball.AddToPosition(ballHeading);
 
 	velocity *= vector4(-1.0f,-1.0f,-1.0f, 1.0f);
 
@@ -137,16 +129,19 @@ void CannonManager::BounceOff()
 	ball.SetVel(velocity);
 }
 
+//calls the balls update method
 void CannonManager::Update()
 {
 	ball.Update();
 }
 
+//returns the balls current position
 vector4 CannonManager::GetBallPos()
 {
 	return ball.GetPos();
 }
 
+//destructor
 CannonManager::~CannonManager(void)
 {
 }

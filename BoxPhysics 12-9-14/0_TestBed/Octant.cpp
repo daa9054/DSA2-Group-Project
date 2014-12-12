@@ -1,6 +1,9 @@
 #include "Octant.h"
 
+//Authors: David Amata, Joe Coppola, and Derek Lescarbeau
+//Date: Novmber 18th - December 12, 2014
 
+//Constuctor, Loads intial values
 Octant::Octant(bool IL, int lvl, int ID, float siz, Octant &par, vector3 org)
 {
 	isLeaf = IL;
@@ -13,12 +16,13 @@ Octant::Octant(bool IL, int lvl, int ID, float siz, Octant &par, vector3 org)
 	bo = new BoundingObjectClass(origin,size);
 }
 
-
+//Destructor
 Octant::~Octant(void)
 {
 	Release();
 }
 
+//Releases any allocated memory when destructor is called
 void Octant::Release()
 {
 	delete parent;
@@ -40,6 +44,9 @@ void Octant::Release()
 	bo = nullptr;
 }
 
+//Sets boungbox to visible and calls render
+//if the octant has children (isLeaf == false) 
+//call the render fuction of the children
 void Octant::Render()
 {
 	bo->SetVisible(true);

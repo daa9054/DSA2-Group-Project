@@ -1,8 +1,15 @@
 #include "ApplicationClass.h"
+
+//Modified By: David Amata, Joe Coppola, and Derek Lescarbeau
+//Date: Novmber 18th - December 12, 2014
+
 void ApplicationClass::InitAppVariables()
 {
+	//Load in Cannon Model First
 	m_pModelMngr->LoadModel("Cannon.obj", "Cannon", glm::translate(matrix4(1.0f), vector3(0.0f, 0.5f, 0.0f)));
 
+	//Load in Target Boxes Intially at random position in front of Cannon
+	//Add them into TargetBox Manager
 	for(int i = 0; i < 10; i++)
 	{
 		float x = (rand() % 20) - 10.0f;
@@ -12,8 +19,10 @@ void ApplicationClass::InitAppVariables()
 		tbMnger.AddBox(TargetBox(i,vector4(x, y, z, 1.0f)));
 	}
 
+	//Load in Cannonball Model
 	m_pModelMngr->LoadModel("CannonBall.obj", "Ball", glm::translate(matrix4(1.0f), vector3(0.0f, 0.5f, 0.0f)));
 
+	//Create the OctTree Manager
 	octTreeMnger = new OctTreeManager(m_pModelMngr);
 }
 void ApplicationClass::Update (void)
@@ -57,12 +66,15 @@ void ApplicationClass::Update (void)
 
 		if(entry.x == 11 || entry.z == 11)
 		{
-
+			//do nothing as nothing should collide with the cannon
 		}
+		//entry 10 is the cannonball
+		//only care about entry x because we do not want duplicate responses
 		else if(entry.x == 10)
 		{
 			m_pModelMngr->SetShaderProgramByNumber(static_cast<int>(entry.x),static_cast<int>(entry.y), "GrayScale");
 
+			//Bouncing the ball and Target Box upon collsiion
 			if(tbMnger.GetBoxes()[entry.z].isHit == false)
 			{
 				cMnger.BounceOff();
@@ -72,18 +84,18 @@ void ApplicationClass::Update (void)
 		}
 	}
 
+	//Updates Cannon logic
 	vector4 cannonVec4 = vector4(0.0f,0.0f,-1.0f,0.0f);
 	cannonVec4 = m_pModelMngr->GetModelMatrix("Cannon") * cannonVec4;
 	cMnger.SetHeading(cannonVec4);
 	cMnger.Update();
 
+	//Set the balls position based on its movement
 	m_pModelMngr->SetModelMatrix(glm::translate(matrix4(1.0f), static_cast<vector3>(cMnger.GetBallPos())), "Ball");
 	
-	//std::vector<TargetBox> testBoxes = tbMnger.GetBoxes();
-	//testBoxes[0].Update();
-	//m_pModelMngr->SetModelMatrix(glm::translate(matrix4(1.0f), static_cast<vector3>(tbMnger.GetBoxes()[0].GetPos())), "TargetBox");
-
+	//updates the target boxes
 	tbMnger.Update();
+	//Handles the positioning of Target Box modle positions
 	for(int i = 0; i < 10; i++)
 	{
 		if (i == 0)
@@ -96,7 +108,7 @@ void ApplicationClass::Update (void)
 		}
 	}
 
-
+	//Generate OctTree based on scene's current state.
 	octTreeMnger->GenerateOctTree();
 	printf("FPS: %d \r", m_pSystem->FPS);//print the Frames per Second
 }

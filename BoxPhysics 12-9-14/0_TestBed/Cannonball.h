@@ -1,17 +1,21 @@
 #pragma once
 #include "ME\MyEngine.h"
-
 #include <SFML\Graphics.hpp>
 #include <chrono>
+
+//Authors: David Amata, Joe Coppola, and Derek Lescarbeau
+//Date: Novmber 18th - December 12, 2014
 
 using namespace MyEngine;
 class Cannonball
 {
 public:
+	//constructor
 	Cannonball(void);
+	//destructor
 	~Cannonball(void);
 
-
+	//Getters
 	vector4 GetPos();
 	vector4 GetVel();
 	vector4 GetAccel();
@@ -23,12 +27,16 @@ public:
 	void SetAccel(vector4 accel);
 	void SetIsFired(bool pFired);
 	void SetInitialShot(bool pInit);
-	void AddForce(vector4 forceToAdd);
-	void Update();
 
+	//Adds force to the ball
+	void AddForce(vector4 forceToAdd);
+	//Updates the movement logic
+	void Update();
+	//allows simple movement for the canonball
 	void AddToPosition(vector4 posToAdd);
 
 private:
+	//member variables
 	vector4 position;
 	vector4 initialPosition;
 	vector4 velocity;

@@ -3,6 +3,9 @@
 #include <codecvt>
 #include <string>
 
+//Modified By: David Amata, Joe Coppola, and Derek Lescarbeau
+//Date: Novmber 18th - December 12, 2014
+
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     switch(msg)
@@ -385,9 +388,9 @@ void ApplicationClass::Display3X (void) //for OpenGL 3.X Applications
 
 	m_pLightBulb->Render(GL_TRIANGLES); //renders the light bulb
 
-	m_pMeshMngr->Render();
+	m_pMeshMngr->Render(); //renders models
 
-	octTreeMnger->Render();
+	octTreeMnger->Render(); //renders the oct trees
 		
 	m_pGLSystem->GLSwapBuffers(); //Swaps the opengl buffers
 }

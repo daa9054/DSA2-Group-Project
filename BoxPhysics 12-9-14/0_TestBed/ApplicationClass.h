@@ -41,6 +41,7 @@ class ApplicationClass
 	CameraSingleton* m_pCamera;
 	MeshManagerSingleton* m_pMeshMngr;
 
+	//Our Managers that handle the main simulation code
 	CannonManager cMnger;
 	TargetBoxManager tbMnger;
 	OctTreeManager* octTreeMnger;

@@ -1,4 +1,8 @@
 #include "ApplicationClass.h"
+
+//Modified By: David Amata, Joe Coppola, and Derek Lescarbeau
+//Date: Novmber 18th - December 12, 2014
+
 void ApplicationClass::ProcessKeyboard(void)
 {
 	static DWORD currentTime = GetTickCount();
@@ -19,11 +23,11 @@ void ApplicationClass::ProcessKeyboard(void)
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		exit(0);
 
+	//Fire Controls
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
 		spaceDown = true;
 		cMnger.SetPower(cMnger.GetPower() + 0.0001f * difference);
-		//std::cout<< "Power: " << cMnger.GetPower() << std::endl;
 	}
 
 	if(spaceDown == false)
@@ -36,26 +40,14 @@ void ApplicationClass::ProcessKeyboard(void)
 		}
 		cMnger.SetPower(0.0f);
 	}
+	//Sets Camera's position on balls location (Turned Off Because While cool makes it hard to aim
 	//m_pCamera->SetPosition(static_cast<vector3>(cMnger.GetBallPos()) + vector3(0.0f, 2.0f, 4.0f));
 
+	//Resets Box Positions 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
 		if(rDown == false)
 		{
-			//std::cout<< "Size of Boxes: " << tbMnger.GetNumBoxes() << std::endl;
-			/*for(int i = 0; i < tbMnger.GetNumBoxes(); i++)
-			{
-				m_pModelMngr->DeleteInstance("TargetBox" + i);
-			}
-			tbMnger.ClearBoxes();
-			for(int i = 0; i < 10; i++)
-			{
-				float x = (rand() % 20) - 10.0f;
-				float y = rand() % 5;
-				float z = (rand() % 20) - 20.0f;
-				m_pModelMngr->LoadModel("TargetBox.obj", "TargetBox" + i, glm::translate(matrix4(1.0f), vector3(x, y, z)));
-				tbMnger.AddBox(TargetBox(i,vector4(x,y,z,1.0f)));
-			}*/
 			tbMnger.ResetBoxes();
 
 			rDown = true;
@@ -245,6 +237,7 @@ void ApplicationClass::ProcessKeyboard(void)
 	//Camera
 #pragma region Camera
 
+	//Camera Controls Modified for Cannon movement instead
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
 		//m_pCamera0->MoveForward(fSpeed);
